@@ -56,16 +56,16 @@ def save():
       question1()
     else:
       exist=False
-      a=[]
+      position=[]
       for i in range(0, len(lines)):
         if website == lines[i][0]:
             exist=True
-            a.append(i)
+            position.append(i)
       if exist:
           is_ok = messagebox.askokcancel(title=website, message=f"The password for this website already exists: \n "f"\nWebsite: {website} \nAre you sure want to overwrite it?")
           if is_ok:
-              for i in range(0, len(a)):
-                  lines[a[i]][1] = password
+              for i in range(0, len(position)):
+                  lines[position[i]][1] = password
                     # overwriting csv with new password 
                   with open("password_list.csv", "w",newline='') as data_file:
                       writer = csv.writer(data_file)
